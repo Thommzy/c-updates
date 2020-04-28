@@ -1,32 +1,32 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/index.js"],{
 
-/***/ "../../node_modules/axios/index.js":
-/*!*************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/index.js ***!
-  \*************************************************************************/
+/***/ "../node_modules/axios/index.js":
+/*!**************************************!*\
+  !*** ../node_modules/axios/index.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./lib/axios */ "../../node_modules/axios/lib/axios.js");
+module.exports = __webpack_require__(/*! ./lib/axios */ "../node_modules/axios/lib/axios.js");
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/adapters/xhr.js":
-/*!************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/adapters/xhr.js ***!
-  \************************************************************************************/
+/***/ "../node_modules/axios/lib/adapters/xhr.js":
+/*!*************************************************!*\
+  !*** ../node_modules/axios/lib/adapters/xhr.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ "../../node_modules/axios/lib/utils.js");
-var settle = __webpack_require__(/*! ./../core/settle */ "../../node_modules/axios/lib/core/settle.js");
-var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ "../../node_modules/axios/lib/helpers/buildURL.js");
-var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ "../../node_modules/axios/lib/helpers/parseHeaders.js");
-var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ "../../node_modules/axios/lib/helpers/isURLSameOrigin.js");
-var createError = __webpack_require__(/*! ../core/createError */ "../../node_modules/axios/lib/core/createError.js");
+var utils = __webpack_require__(/*! ./../utils */ "../node_modules/axios/lib/utils.js");
+var settle = __webpack_require__(/*! ./../core/settle */ "../node_modules/axios/lib/core/settle.js");
+var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ "../node_modules/axios/lib/helpers/buildURL.js");
+var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ "../node_modules/axios/lib/helpers/parseHeaders.js");
+var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ "../node_modules/axios/lib/helpers/isURLSameOrigin.js");
+var createError = __webpack_require__(/*! ../core/createError */ "../node_modules/axios/lib/core/createError.js");
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -118,7 +118,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(/*! ./../helpers/cookies */ "../../node_modules/axios/lib/helpers/cookies.js");
+      var cookies = __webpack_require__(/*! ./../helpers/cookies */ "../node_modules/axios/lib/helpers/cookies.js");
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -197,21 +197,21 @@ module.exports = function xhrAdapter(config) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/axios.js":
-/*!*****************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/axios.js ***!
-  \*****************************************************************************/
+/***/ "../node_modules/axios/lib/axios.js":
+/*!******************************************!*\
+  !*** ../node_modules/axios/lib/axios.js ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./utils */ "../../node_modules/axios/lib/utils.js");
-var bind = __webpack_require__(/*! ./helpers/bind */ "../../node_modules/axios/lib/helpers/bind.js");
-var Axios = __webpack_require__(/*! ./core/Axios */ "../../node_modules/axios/lib/core/Axios.js");
-var mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ "../../node_modules/axios/lib/core/mergeConfig.js");
-var defaults = __webpack_require__(/*! ./defaults */ "../../node_modules/axios/lib/defaults.js");
+var utils = __webpack_require__(/*! ./utils */ "../node_modules/axios/lib/utils.js");
+var bind = __webpack_require__(/*! ./helpers/bind */ "../node_modules/axios/lib/helpers/bind.js");
+var Axios = __webpack_require__(/*! ./core/Axios */ "../node_modules/axios/lib/core/Axios.js");
+var mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ "../node_modules/axios/lib/core/mergeConfig.js");
+var defaults = __webpack_require__(/*! ./defaults */ "../node_modules/axios/lib/defaults.js");
 
 /**
  * Create an instance of Axios
@@ -244,15 +244,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ "../../node_modules/axios/lib/cancel/Cancel.js");
-axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ "../../node_modules/axios/lib/cancel/CancelToken.js");
-axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ "../../node_modules/axios/lib/cancel/isCancel.js");
+axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ "../node_modules/axios/lib/cancel/Cancel.js");
+axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ "../node_modules/axios/lib/cancel/CancelToken.js");
+axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ "../node_modules/axios/lib/cancel/isCancel.js");
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(/*! ./helpers/spread */ "../../node_modules/axios/lib/helpers/spread.js");
+axios.spread = __webpack_require__(/*! ./helpers/spread */ "../node_modules/axios/lib/helpers/spread.js");
 
 module.exports = axios;
 
@@ -262,10 +262,10 @@ module.exports.default = axios;
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/cancel/Cancel.js":
-/*!*************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/cancel/Cancel.js ***!
-  \*************************************************************************************/
+/***/ "../node_modules/axios/lib/cancel/Cancel.js":
+/*!**************************************************!*\
+  !*** ../node_modules/axios/lib/cancel/Cancel.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -293,17 +293,17 @@ module.exports = Cancel;
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/cancel/CancelToken.js":
-/*!******************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/cancel/CancelToken.js ***!
-  \******************************************************************************************/
+/***/ "../node_modules/axios/lib/cancel/CancelToken.js":
+/*!*******************************************************!*\
+  !*** ../node_modules/axios/lib/cancel/CancelToken.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(/*! ./Cancel */ "../../node_modules/axios/lib/cancel/Cancel.js");
+var Cancel = __webpack_require__(/*! ./Cancel */ "../node_modules/axios/lib/cancel/Cancel.js");
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -362,10 +362,10 @@ module.exports = CancelToken;
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/cancel/isCancel.js":
-/*!***************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/cancel/isCancel.js ***!
-  \***************************************************************************************/
+/***/ "../node_modules/axios/lib/cancel/isCancel.js":
+/*!****************************************************!*\
+  !*** ../node_modules/axios/lib/cancel/isCancel.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -379,21 +379,21 @@ module.exports = function isCancel(value) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/core/Axios.js":
-/*!**********************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/core/Axios.js ***!
-  \**********************************************************************************/
+/***/ "../node_modules/axios/lib/core/Axios.js":
+/*!***********************************************!*\
+  !*** ../node_modules/axios/lib/core/Axios.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ "../../node_modules/axios/lib/utils.js");
-var buildURL = __webpack_require__(/*! ../helpers/buildURL */ "../../node_modules/axios/lib/helpers/buildURL.js");
-var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ "../../node_modules/axios/lib/core/InterceptorManager.js");
-var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ "../../node_modules/axios/lib/core/dispatchRequest.js");
-var mergeConfig = __webpack_require__(/*! ./mergeConfig */ "../../node_modules/axios/lib/core/mergeConfig.js");
+var utils = __webpack_require__(/*! ./../utils */ "../node_modules/axios/lib/utils.js");
+var buildURL = __webpack_require__(/*! ../helpers/buildURL */ "../node_modules/axios/lib/helpers/buildURL.js");
+var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ "../node_modules/axios/lib/core/InterceptorManager.js");
+var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ "../node_modules/axios/lib/core/dispatchRequest.js");
+var mergeConfig = __webpack_require__(/*! ./mergeConfig */ "../node_modules/axios/lib/core/mergeConfig.js");
 
 /**
  * Create a new instance of Axios
@@ -477,17 +477,17 @@ module.exports = Axios;
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/core/InterceptorManager.js":
-/*!***********************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/core/InterceptorManager.js ***!
-  \***********************************************************************************************/
+/***/ "../node_modules/axios/lib/core/InterceptorManager.js":
+/*!************************************************************!*\
+  !*** ../node_modules/axios/lib/core/InterceptorManager.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ "../../node_modules/axios/lib/utils.js");
+var utils = __webpack_require__(/*! ./../utils */ "../node_modules/axios/lib/utils.js");
 
 function InterceptorManager() {
   this.handlers = [];
@@ -541,17 +541,17 @@ module.exports = InterceptorManager;
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/core/createError.js":
-/*!****************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/core/createError.js ***!
-  \****************************************************************************************/
+/***/ "../node_modules/axios/lib/core/createError.js":
+/*!*****************************************************!*\
+  !*** ../node_modules/axios/lib/core/createError.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(/*! ./enhanceError */ "../../node_modules/axios/lib/core/enhanceError.js");
+var enhanceError = __webpack_require__(/*! ./enhanceError */ "../node_modules/axios/lib/core/enhanceError.js");
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -571,22 +571,22 @@ module.exports = function createError(message, config, code, request, response) 
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/core/dispatchRequest.js":
-/*!********************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/core/dispatchRequest.js ***!
-  \********************************************************************************************/
+/***/ "../node_modules/axios/lib/core/dispatchRequest.js":
+/*!*********************************************************!*\
+  !*** ../node_modules/axios/lib/core/dispatchRequest.js ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ "../../node_modules/axios/lib/utils.js");
-var transformData = __webpack_require__(/*! ./transformData */ "../../node_modules/axios/lib/core/transformData.js");
-var isCancel = __webpack_require__(/*! ../cancel/isCancel */ "../../node_modules/axios/lib/cancel/isCancel.js");
-var defaults = __webpack_require__(/*! ../defaults */ "../../node_modules/axios/lib/defaults.js");
-var isAbsoluteURL = __webpack_require__(/*! ./../helpers/isAbsoluteURL */ "../../node_modules/axios/lib/helpers/isAbsoluteURL.js");
-var combineURLs = __webpack_require__(/*! ./../helpers/combineURLs */ "../../node_modules/axios/lib/helpers/combineURLs.js");
+var utils = __webpack_require__(/*! ./../utils */ "../node_modules/axios/lib/utils.js");
+var transformData = __webpack_require__(/*! ./transformData */ "../node_modules/axios/lib/core/transformData.js");
+var isCancel = __webpack_require__(/*! ../cancel/isCancel */ "../node_modules/axios/lib/cancel/isCancel.js");
+var defaults = __webpack_require__(/*! ../defaults */ "../node_modules/axios/lib/defaults.js");
+var isAbsoluteURL = __webpack_require__(/*! ./../helpers/isAbsoluteURL */ "../node_modules/axios/lib/helpers/isAbsoluteURL.js");
+var combineURLs = __webpack_require__(/*! ./../helpers/combineURLs */ "../node_modules/axios/lib/helpers/combineURLs.js");
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -669,10 +669,10 @@ module.exports = function dispatchRequest(config) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/core/enhanceError.js":
-/*!*****************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/core/enhanceError.js ***!
-  \*****************************************************************************************/
+/***/ "../node_modules/axios/lib/core/enhanceError.js":
+/*!******************************************************!*\
+  !*** ../node_modules/axios/lib/core/enhanceError.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -723,17 +723,17 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/core/mergeConfig.js":
-/*!****************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/core/mergeConfig.js ***!
-  \****************************************************************************************/
+/***/ "../node_modules/axios/lib/core/mergeConfig.js":
+/*!*****************************************************!*\
+  !*** ../node_modules/axios/lib/core/mergeConfig.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ../utils */ "../../node_modules/axios/lib/utils.js");
+var utils = __webpack_require__(/*! ../utils */ "../node_modules/axios/lib/utils.js");
 
 /**
  * Config-specific merge-function which creates a new config-object
@@ -786,17 +786,17 @@ module.exports = function mergeConfig(config1, config2) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/core/settle.js":
-/*!***********************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/core/settle.js ***!
-  \***********************************************************************************/
+/***/ "../node_modules/axios/lib/core/settle.js":
+/*!************************************************!*\
+  !*** ../node_modules/axios/lib/core/settle.js ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(/*! ./createError */ "../../node_modules/axios/lib/core/createError.js");
+var createError = __webpack_require__(/*! ./createError */ "../node_modules/axios/lib/core/createError.js");
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -823,17 +823,17 @@ module.exports = function settle(resolve, reject, response) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/core/transformData.js":
-/*!******************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/core/transformData.js ***!
-  \******************************************************************************************/
+/***/ "../node_modules/axios/lib/core/transformData.js":
+/*!*******************************************************!*\
+  !*** ../node_modules/axios/lib/core/transformData.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ "../../node_modules/axios/lib/utils.js");
+var utils = __webpack_require__(/*! ./../utils */ "../node_modules/axios/lib/utils.js");
 
 /**
  * Transform the data for a request or a response
@@ -855,18 +855,18 @@ module.exports = function transformData(data, headers, fns) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/defaults.js":
-/*!********************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/defaults.js ***!
-  \********************************************************************************/
+/***/ "../node_modules/axios/lib/defaults.js":
+/*!*********************************************!*\
+  !*** ../node_modules/axios/lib/defaults.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(/*! ./utils */ "../../node_modules/axios/lib/utils.js");
-var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ "../../node_modules/axios/lib/helpers/normalizeHeaderName.js");
+var utils = __webpack_require__(/*! ./utils */ "../node_modules/axios/lib/utils.js");
+var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ "../node_modules/axios/lib/helpers/normalizeHeaderName.js");
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -883,10 +883,10 @@ function getDefaultAdapter() {
   // Only Node.JS has a process variable that is of [[Class]] process
   if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(/*! ./adapters/http */ "../../node_modules/axios/lib/adapters/xhr.js");
+    adapter = __webpack_require__(/*! ./adapters/http */ "../node_modules/axios/lib/adapters/xhr.js");
   } else if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(/*! ./adapters/xhr */ "../../node_modules/axios/lib/adapters/xhr.js");
+    adapter = __webpack_require__(/*! ./adapters/xhr */ "../node_modules/axios/lib/adapters/xhr.js");
   }
   return adapter;
 }
@@ -962,14 +962,14 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../covidtracker/tracker/node_modules/process/browser.js */ "./node_modules/process/browser.js")))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../tracker/node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/helpers/bind.js":
-/*!************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/helpers/bind.js ***!
-  \************************************************************************************/
+/***/ "../node_modules/axios/lib/helpers/bind.js":
+/*!*************************************************!*\
+  !*** ../node_modules/axios/lib/helpers/bind.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -989,17 +989,17 @@ module.exports = function bind(fn, thisArg) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/helpers/buildURL.js":
-/*!****************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/helpers/buildURL.js ***!
-  \****************************************************************************************/
+/***/ "../node_modules/axios/lib/helpers/buildURL.js":
+/*!*****************************************************!*\
+  !*** ../node_modules/axios/lib/helpers/buildURL.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ "../../node_modules/axios/lib/utils.js");
+var utils = __webpack_require__(/*! ./../utils */ "../node_modules/axios/lib/utils.js");
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -1072,10 +1072,10 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/helpers/combineURLs.js":
-/*!*******************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/helpers/combineURLs.js ***!
-  \*******************************************************************************************/
+/***/ "../node_modules/axios/lib/helpers/combineURLs.js":
+/*!********************************************************!*\
+  !*** ../node_modules/axios/lib/helpers/combineURLs.js ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1098,17 +1098,17 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/helpers/cookies.js":
-/*!***************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/helpers/cookies.js ***!
-  \***************************************************************************************/
+/***/ "../node_modules/axios/lib/helpers/cookies.js":
+/*!****************************************************!*\
+  !*** ../node_modules/axios/lib/helpers/cookies.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ "../../node_modules/axios/lib/utils.js");
+var utils = __webpack_require__(/*! ./../utils */ "../node_modules/axios/lib/utils.js");
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -1163,10 +1163,10 @@ module.exports = (
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/helpers/isAbsoluteURL.js":
-/*!*********************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
-  \*********************************************************************************************/
+/***/ "../node_modules/axios/lib/helpers/isAbsoluteURL.js":
+/*!**********************************************************!*\
+  !*** ../node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1189,17 +1189,17 @@ module.exports = function isAbsoluteURL(url) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/helpers/isURLSameOrigin.js":
-/*!***********************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
-  \***********************************************************************************************/
+/***/ "../node_modules/axios/lib/helpers/isURLSameOrigin.js":
+/*!************************************************************!*\
+  !*** ../node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ "../../node_modules/axios/lib/utils.js");
+var utils = __webpack_require__(/*! ./../utils */ "../node_modules/axios/lib/utils.js");
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -1269,17 +1269,17 @@ module.exports = (
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/helpers/normalizeHeaderName.js":
-/*!***************************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
-  \***************************************************************************************************/
+/***/ "../node_modules/axios/lib/helpers/normalizeHeaderName.js":
+/*!****************************************************************!*\
+  !*** ../node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ../utils */ "../../node_modules/axios/lib/utils.js");
+var utils = __webpack_require__(/*! ../utils */ "../node_modules/axios/lib/utils.js");
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -1293,17 +1293,17 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/helpers/parseHeaders.js":
-/*!********************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/helpers/parseHeaders.js ***!
-  \********************************************************************************************/
+/***/ "../node_modules/axios/lib/helpers/parseHeaders.js":
+/*!*********************************************************!*\
+  !*** ../node_modules/axios/lib/helpers/parseHeaders.js ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ "../../node_modules/axios/lib/utils.js");
+var utils = __webpack_require__(/*! ./../utils */ "../node_modules/axios/lib/utils.js");
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -1358,10 +1358,10 @@ module.exports = function parseHeaders(headers) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/helpers/spread.js":
-/*!**************************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/helpers/spread.js ***!
-  \**************************************************************************************/
+/***/ "../node_modules/axios/lib/helpers/spread.js":
+/*!***************************************************!*\
+  !*** ../node_modules/axios/lib/helpers/spread.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1397,18 +1397,18 @@ module.exports = function spread(callback) {
 
 /***/ }),
 
-/***/ "../../node_modules/axios/lib/utils.js":
-/*!*****************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/axios/lib/utils.js ***!
-  \*****************************************************************************/
+/***/ "../node_modules/axios/lib/utils.js":
+/*!******************************************!*\
+  !*** ../node_modules/axios/lib/utils.js ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var bind = __webpack_require__(/*! ./helpers/bind */ "../../node_modules/axios/lib/helpers/bind.js");
-var isBuffer = __webpack_require__(/*! is-buffer */ "../../node_modules/is-buffer/index.js");
+var bind = __webpack_require__(/*! ./helpers/bind */ "../node_modules/axios/lib/helpers/bind.js");
+var isBuffer = __webpack_require__(/*! is-buffer */ "../node_modules/is-buffer/index.js");
 
 /*global toString:true*/
 
@@ -1743,10 +1743,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "../../node_modules/is-buffer/index.js":
-/*!*****************************************************************************!*\
-  !*** /Applications/XAMPP/xamppfiles/htdocs/node_modules/is-buffer/index.js ***!
-  \*****************************************************************************/
+/***/ "../node_modules/is-buffer/index.js":
+/*!******************************************!*\
+  !*** ../node_modules/is-buffer/index.js ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -1790,7 +1790,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/covidtracker/tracker/Components/Header/Footer.js";
+var _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/tracker/Components/Header/Footer.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
@@ -1909,7 +1909,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/covidtracker/tracker/Components/Header/MainMenu.js";
+var _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/tracker/Components/Header/MainMenu.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, result); }; }
@@ -2062,7 +2062,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/covidtracker/tracker/Components/Home/Banner.js";
+var _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/tracker/Components/Home/Banner.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
@@ -2129,7 +2129,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 var _this = undefined,
-    _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/covidtracker/tracker/Components/Home/CardReport.js";
+    _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/tracker/Components/Home/CardReport.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2319,7 +2319,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/index.js");
 var _this = undefined,
-    _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/covidtracker/tracker/Components/Home/Country.js";
+    _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/tracker/Components/Home/Country.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -38971,10 +38971,10 @@ var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineP
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FApplications%2FXAMPP%2Fxamppfiles%2Fhtdocs%2Fcovidtracker%2Ftracker%2Fpages%2Findex.js!./":
-/*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FApplications%2FXAMPP%2Fxamppfiles%2Fhtdocs%2Fcovidtracker%2Ftracker%2Fpages%2Findex.js ***!
-  \******************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FApplications%2FXAMPP%2Fxamppfiles%2Fhtdocs%2Ftracker%2Fpages%2Findex.js!./":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FApplications%2FXAMPP%2Fxamppfiles%2Fhtdocs%2Ftracker%2Fpages%2Findex.js ***!
+  \***************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -74125,7 +74125,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Home_Country__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Components/Home/Country */ "./Components/Home/Country.js");
 /* harmony import */ var _Components_Home_CardReport__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Components/Home/CardReport */ "./Components/Home/CardReport.js");
 /* harmony import */ var _Components_Header_Footer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Components/Header/Footer */ "./Components/Header/Footer.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! axios */ "../node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../config */ "./config.js");
 
@@ -74134,7 +74134,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/covidtracker/tracker/pages/index.js";
+var _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/tracker/pages/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
@@ -74261,13 +74261,13 @@ var Home = /*#__PURE__*/function (_Component) {
 /***/ }),
 
 /***/ 1:
-/*!**********************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FApplications%2FXAMPP%2Fxamppfiles%2Fhtdocs%2Fcovidtracker%2Ftracker%2Fpages%2Findex.js ***!
-  \**********************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FApplications%2FXAMPP%2Fxamppfiles%2Fhtdocs%2Ftracker%2Fpages%2Findex.js ***!
+  \*******************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=%2FApplications%2FXAMPP%2Fxamppfiles%2Fhtdocs%2Fcovidtracker%2Ftracker%2Fpages%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FApplications%2FXAMPP%2Fxamppfiles%2Fhtdocs%2Fcovidtracker%2Ftracker%2Fpages%2Findex.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=%2FApplications%2FXAMPP%2Fxamppfiles%2Fhtdocs%2Ftracker%2Fpages%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FApplications%2FXAMPP%2Fxamppfiles%2Fhtdocs%2Ftracker%2Fpages%2Findex.js!./");
 
 
 /***/ }),
