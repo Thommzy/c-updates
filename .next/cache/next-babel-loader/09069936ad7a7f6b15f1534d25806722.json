@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React, { Component } from \"react\";\nimport { Header } from \"semantic-ui-react\";\nexport default class Banner extends Component {\n  render() {\n    return __jsx(\"div\", null, __jsx(\"div\", {\n      className: \"header-main\"\n    }));\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
