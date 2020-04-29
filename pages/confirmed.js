@@ -8,7 +8,7 @@ import { Card, Image, Button, Header, Container } from "semantic-ui-react";
 
 import moment from "moment";
 const router = Router;
-//console.log(router);
+console.log(router);
 
 function addComma(str) {
   let aa = str.toString().split("");
@@ -39,23 +39,14 @@ export default class confirmed extends Component {
       confirms = response.data;
       // console.table(confirms);
     } catch (error) {
-    //  console.log(error);
+      //  console.log(error);
     }
     return { confirms, loading: false };
   }
-  componentDidMount() {
-   // console.log("Yay");
-  }
 
-  // renderConfirmed(confirms) {
-  //   return confirms.map((key) => {
-  //     //  console.log(confirms);
-  //     return confirms;
-  //   });
-  // }
   render() {
     const { confirms, loading } = this.props;
-   // console.log(!loading);
+    // console.log(!loading);
     return (
       <>
         <MainMenu router={router} />

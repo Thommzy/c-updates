@@ -10,32 +10,36 @@ import {
 import Link from "next/link";
 import moment from "moment";
 
-const date = moment("2018-10-03T05:00:00.000+0000");
+function addMillions(str) {
+  let aa = str.toString();
+  let bb = "";
 
-//console.log(date.format("LLLL"));
-
-function addComma(str) {
-  let aa = str.toString().split("");
   if (aa.length === 7) {
-    aa.splice(1, 0, ",");
+    let firstSection = aa.substring(0, 1);
+    let secondSection = aa.substring(1, 4);
+    let thirdSection = aa.substring(4);
+    bb += `${firstSection},${secondSection},${thirdSection}`;
   }
   if (aa.length === 6) {
-    aa.splice(3, 0, ",");
+    let firstSection = aa.substring(0, 3);
+    let secondSection = aa.substring(3);
+    bb += `${firstSection},${secondSection}`;
   }
   if (aa.length === 5) {
-    aa.splice(2, 0, ",");
+    let firstSection = aa.substring(0, 2);
+    let secondSection = aa.substring(2);
+    bb += `${firstSection},${secondSection}`;
   }
   if (aa.length === 4) {
-    aa.splice(1, 0, ",");
-  }
-  if (aa.length === 3) {
-    aa;
+    let firstSection = aa.substring(0, 1);
+    let secondSection = aa.substring(1);
+    bb += `${firstSection},${secondSection}`;
   }
 
-  return aa.join("");
+  return bb;
 }
 
-const CardReport = ({ read }) => (
+const CardReport = ({ read, loading }) => (
   <Container>
     <div className="cardd">
       <Card.Group className="card-main">
@@ -59,12 +63,12 @@ const CardReport = ({ read }) => (
                     ></Icon>
                   ) : null}
                 </div>
+                {/* <h1>{loading}</h1> */}
                 <Header as="h1">
                   {key === "lastUpdate" ? "Last Update" : key}
                 </Header>
                 {key === "lastUpdate" ? (
                   <Header className="lightText" as="h3">
-                    {" "}
                     {moment(read[key]).format("LLLL")}
                   </Header>
                 ) : null}
@@ -86,7 +90,9 @@ const CardReport = ({ read }) => (
                 ) : null}
 
                 <Card.Header>
-                  {read[key].value ? addComma(Number(read[key].value)) : null}
+                  {read[key].value
+                    ? addMillions(Number(read[key].value))
+                    : null}
                 </Card.Header>
               </Card.Content>
             </Card>

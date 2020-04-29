@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -388,41 +388,47 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const date = moment__WEBPACK_IMPORTED_MODULE_3___default()("2018-10-03T05:00:00.000+0000"); //console.log(date.format("LLLL"));
 
-function addComma(str) {
-  let aa = str.toString().split("");
+function addMillions(str) {
+  let aa = str.toString();
+  let bb = "";
 
   if (aa.length === 7) {
-    aa.splice(1, 0, ",");
+    let firstSection = aa.substring(0, 1);
+    let secondSection = aa.substring(1, 4);
+    let thirdSection = aa.substring(4);
+    bb += `${firstSection},${secondSection},${thirdSection}`;
   }
 
   if (aa.length === 6) {
-    aa.splice(3, 0, ",");
+    let firstSection = aa.substring(0, 3);
+    let secondSection = aa.substring(3);
+    bb += `${firstSection},${secondSection}`;
   }
 
   if (aa.length === 5) {
-    aa.splice(2, 0, ",");
+    let firstSection = aa.substring(0, 2);
+    let secondSection = aa.substring(2);
+    bb += `${firstSection},${secondSection}`;
   }
 
   if (aa.length === 4) {
-    aa.splice(1, 0, ",");
+    let firstSection = aa.substring(0, 1);
+    let secondSection = aa.substring(1);
+    bb += `${firstSection},${secondSection}`;
   }
 
-  if (aa.length === 3) {
-    aa;
-  }
-
-  return aa.join("");
+  return bb;
 }
 
 const CardReport = ({
-  read
+  read,
+  loading
 }) => __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Container"], {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 39,
+    lineNumber: 43,
     columnNumber: 3
   }
 }, __jsx("div", {
@@ -430,7 +436,7 @@ const CardReport = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 40,
+    lineNumber: 44,
     columnNumber: 5
   }
 }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"].Group, {
@@ -438,7 +444,7 @@ const CardReport = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 41,
+    lineNumber: 45,
     columnNumber: 7
   }
 }, Object.keys(read).map((key, i) => read[key].value || key === "lastUpdate" ? __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"], {
@@ -447,14 +453,14 @@ const CardReport = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 44,
+    lineNumber: 48,
     columnNumber: 13
   }
 }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"].Content, {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 45,
+    lineNumber: 49,
     columnNumber: 15
   }
 }, __jsx("div", {
@@ -462,7 +468,7 @@ const CardReport = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 46,
+    lineNumber: 50,
     columnNumber: 17
   }
 }, read[key].value ? __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -471,7 +477,7 @@ const CardReport = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 48,
+    lineNumber: 52,
     columnNumber: 21
   }
 }) : null), __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Header"], {
@@ -479,7 +485,7 @@ const CardReport = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 62,
+    lineNumber: 67,
     columnNumber: 17
   }
 }, key === "lastUpdate" ? "Last Update" : key), key === "lastUpdate" ? __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Header"], {
@@ -488,16 +494,16 @@ const CardReport = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 66,
+    lineNumber: 71,
     columnNumber: 19
   }
-}, " ", moment__WEBPACK_IMPORTED_MODULE_3___default()(read[key]).format("LLLL")) : null, key === "confirmed" ? __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+}, moment__WEBPACK_IMPORTED_MODULE_3___default()(read[key]).format("LLLL")) : null, key === "confirmed" ? __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
   href: "/confirmed",
   as: `/${key}`,
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 72,
+    lineNumber: 76,
     columnNumber: 19
   }
 }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Button"], {
@@ -505,7 +511,7 @@ const CardReport = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 73,
+    lineNumber: 77,
     columnNumber: 21
   }
 }, "Read More")) : null, key === "recovered" ? __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -514,7 +520,7 @@ const CardReport = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 77,
+    lineNumber: 81,
     columnNumber: 19
   }
 }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Button"], {
@@ -522,7 +528,7 @@ const CardReport = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 78,
+    lineNumber: 82,
     columnNumber: 21
   }
 }, "Read More")) : null, key === "deaths" ? __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -531,7 +537,7 @@ const CardReport = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 83,
+    lineNumber: 87,
     columnNumber: 19
   }
 }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Button"], {
@@ -539,17 +545,17 @@ const CardReport = ({
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 84,
+    lineNumber: 88,
     columnNumber: 21
   }
 }, "Read More")) : null, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"].Header, {
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 88,
+    lineNumber: 92,
     columnNumber: 17
   }
-}, read[key].value ? addComma(Number(read[key].value)) : null))) : null))));
+}, read[key].value ? addMillions(Number(read[key].value)) : null))) : null))));
 
 /* harmony default export */ __webpack_exports__["default"] = (CardReport);
 
@@ -2675,6 +2681,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "axios");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../config */ "./config.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! semantic-ui-react */ "semantic-ui-react");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__);
 var _jsxFileName = "/Applications/XAMPP/xamppfiles/htdocs/tracker/pages/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2687,8 +2695,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const router = next_router__WEBPACK_IMPORTED_MODULE_1___default.a; //console.log(router);
 
+const router = next_router__WEBPACK_IMPORTED_MODULE_1___default.a;
+console.log(router);
 class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   static async getInitialProps() {
     let results = [];
@@ -2700,15 +2709,25 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }
 
     return {
-      results
+      results,
+      loading: false
     };
-  } // renderResults(results) {
-  //   return Object.keys(results).map((key) => {
-  //     //console.log(results);
-  //     return results;
-  //   });
-  // }
+  }
 
+  loadingButton() {
+    if (!this.props.loading) {
+      console.log("see");
+      return __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["Button"], {
+        loading: true,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30,
+          columnNumber: 14
+        }
+      }, "Loading");
+    }
+  }
 
   render() {
     const {
@@ -2720,7 +2739,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36,
+        lineNumber: 38,
         columnNumber: 7
       }
     }, __jsx(_Components_Header_MainMenu__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2728,29 +2747,30 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37,
+        lineNumber: 39,
         columnNumber: 9
       }
     }), __jsx(_Components_Home_Banner__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38,
+        lineNumber: 40,
         columnNumber: 9
       }
     }), __jsx(_Components_Home_CardReport__WEBPACK_IMPORTED_MODULE_5__["default"], {
       read: results,
+      loading: this.loadingButton(),
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40,
+        lineNumber: 43,
         columnNumber: 9
       }
     }), __jsx(_Components_Header_Footer__WEBPACK_IMPORTED_MODULE_6__["default"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41,
+        lineNumber: 44,
         columnNumber: 9
       }
     }));
@@ -2760,7 +2780,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

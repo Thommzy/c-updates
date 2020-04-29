@@ -371,41 +371,53 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-var date = moment__WEBPACK_IMPORTED_MODULE_3___default()("2018-10-03T05:00:00.000+0000"); //console.log(date.format("LLLL"));
 
-function addComma(str) {
-  var aa = str.toString().split("");
+function addMillions(str) {
+  var aa = str.toString();
+  var bb = "";
 
   if (aa.length === 7) {
-    aa.splice(1, 0, ",");
+    var firstSection = aa.substring(0, 1);
+    var secondSection = aa.substring(1, 4);
+    var thirdSection = aa.substring(4);
+    bb += "".concat(firstSection, ",").concat(secondSection, ",").concat(thirdSection);
   }
 
   if (aa.length === 6) {
-    aa.splice(3, 0, ",");
+    var _firstSection = aa.substring(0, 3);
+
+    var _secondSection = aa.substring(3);
+
+    bb += "".concat(_firstSection, ",").concat(_secondSection);
   }
 
   if (aa.length === 5) {
-    aa.splice(2, 0, ",");
+    var _firstSection2 = aa.substring(0, 2);
+
+    var _secondSection2 = aa.substring(2);
+
+    bb += "".concat(_firstSection2, ",").concat(_secondSection2);
   }
 
   if (aa.length === 4) {
-    aa.splice(1, 0, ",");
+    var _firstSection3 = aa.substring(0, 1);
+
+    var _secondSection3 = aa.substring(1);
+
+    bb += "".concat(_firstSection3, ",").concat(_secondSection3);
   }
 
-  if (aa.length === 3) {
-    aa;
-  }
-
-  return aa.join("");
+  return bb;
 }
 
 var CardReport = function CardReport(_ref) {
-  var read = _ref.read;
+  var read = _ref.read,
+      loading = _ref.loading;
   return __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Container"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 43,
       columnNumber: 3
     }
   }, __jsx("div", {
@@ -413,7 +425,7 @@ var CardReport = function CardReport(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 44,
       columnNumber: 5
     }
   }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"].Group, {
@@ -421,7 +433,7 @@ var CardReport = function CardReport(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 45,
       columnNumber: 7
     }
   }, Object.keys(read).map(function (key, i) {
@@ -431,14 +443,14 @@ var CardReport = function CardReport(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44,
+        lineNumber: 48,
         columnNumber: 13
       }
     }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"].Content, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45,
+        lineNumber: 49,
         columnNumber: 15
       }
     }, __jsx("div", {
@@ -446,7 +458,7 @@ var CardReport = function CardReport(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46,
+        lineNumber: 50,
         columnNumber: 17
       }
     }, read[key].value ? __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
@@ -455,7 +467,7 @@ var CardReport = function CardReport(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48,
+        lineNumber: 52,
         columnNumber: 21
       }
     }) : null), __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Header"], {
@@ -463,7 +475,7 @@ var CardReport = function CardReport(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 62,
+        lineNumber: 67,
         columnNumber: 17
       }
     }, key === "lastUpdate" ? "Last Update" : key), key === "lastUpdate" ? __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Header"], {
@@ -472,16 +484,16 @@ var CardReport = function CardReport(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66,
+        lineNumber: 71,
         columnNumber: 19
       }
-    }, " ", moment__WEBPACK_IMPORTED_MODULE_3___default()(read[key]).format("LLLL")) : null, key === "confirmed" ? __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    }, moment__WEBPACK_IMPORTED_MODULE_3___default()(read[key]).format("LLLL")) : null, key === "confirmed" ? __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
       href: "/confirmed",
       as: "/".concat(key),
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72,
+        lineNumber: 76,
         columnNumber: 19
       }
     }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Button"], {
@@ -489,7 +501,7 @@ var CardReport = function CardReport(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73,
+        lineNumber: 77,
         columnNumber: 21
       }
     }, "Read More")) : null, key === "recovered" ? __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -498,7 +510,7 @@ var CardReport = function CardReport(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77,
+        lineNumber: 81,
         columnNumber: 19
       }
     }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Button"], {
@@ -506,7 +518,7 @@ var CardReport = function CardReport(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78,
+        lineNumber: 82,
         columnNumber: 21
       }
     }, "Read More")) : null, key === "deaths" ? __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -515,7 +527,7 @@ var CardReport = function CardReport(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 83,
+        lineNumber: 87,
         columnNumber: 19
       }
     }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Button"], {
@@ -523,17 +535,17 @@ var CardReport = function CardReport(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84,
+        lineNumber: 88,
         columnNumber: 21
       }
     }, "Read More")) : null, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Card"].Header, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88,
+        lineNumber: 92,
         columnNumber: 17
       }
-    }, read[key].value ? addComma(Number(read[key].value)) : null))) : null;
+    }, read[key].value ? addMillions(Number(read[key].value)) : null))) : null;
   }))));
 };
 
@@ -74176,6 +74188,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../config */ "./config.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/index.js");
 
 
 
@@ -74199,7 +74212,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-var router = next_router__WEBPACK_IMPORTED_MODULE_7___default.a; //console.log(router);
+
+var router = next_router__WEBPACK_IMPORTED_MODULE_7___default.a;
+console.log(router);
 
 var Home = /*#__PURE__*/function (_Component) {
   Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__["default"])(Home, _Component);
@@ -74213,13 +74228,23 @@ var Home = /*#__PURE__*/function (_Component) {
   }
 
   Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Home, [{
+    key: "loadingButton",
+    value: function loadingButton() {
+      if (!this.props.loading) {
+        console.log("see");
+        return __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_15__["Button"], {
+          loading: true,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 30,
+            columnNumber: 14
+          }
+        }, "Loading");
+      }
+    }
+  }, {
     key: "render",
-    // renderResults(results) {
-    //   return Object.keys(results).map((key) => {
-    //     //console.log(results);
-    //     return results;
-    //   });
-    // }
     value: function render() {
       var results = this.props.results; //console.log(this.props.results);
 
@@ -74228,7 +74253,7 @@ var Home = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36,
+          lineNumber: 38,
           columnNumber: 7
         }
       }, __jsx(_Components_Header_MainMenu__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -74236,29 +74261,30 @@ var Home = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37,
+          lineNumber: 39,
           columnNumber: 9
         }
       }), __jsx(_Components_Home_Banner__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38,
+          lineNumber: 40,
           columnNumber: 9
         }
       }), __jsx(_Components_Home_CardReport__WEBPACK_IMPORTED_MODULE_11__["default"], {
         read: results,
+        loading: this.loadingButton(),
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40,
+          lineNumber: 43,
           columnNumber: 9
         }
       }), __jsx(_Components_Header_Footer__WEBPACK_IMPORTED_MODULE_12__["default"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41,
+          lineNumber: 44,
           columnNumber: 9
         }
       }));
@@ -74289,7 +74315,8 @@ var Home = /*#__PURE__*/function (_Component) {
 
             case 10:
               return _context.abrupt("return", {
-                results: results
+                results: results,
+                loading: false
               });
 
             case 11:
@@ -74308,7 +74335,7 @@ var Home = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!*******************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FApplications%2FXAMPP%2Fxamppfiles%2Fhtdocs%2Ftracker%2Fpages%2Findex.js ***!
   \*******************************************************************************************************************************************/
@@ -74331,5 +74358,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

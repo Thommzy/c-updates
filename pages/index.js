@@ -7,8 +7,9 @@ import CardReport from "../Components/Home/CardReport";
 import Footer from "../Components/Header/Footer";
 import axios from "axios";
 import { BASE_URL } from "../config";
+import { Button } from "semantic-ui-react";
 const router = Router;
-//console.log(router);
+console.log(router);
 
 export default class Home extends Component {
   static async getInitialProps() {
@@ -20,24 +21,26 @@ export default class Home extends Component {
     } catch (error) {
       //  console.log(error);
     }
-    return { results };
+    return { results, loading: false };
   }
 
-  // renderResults(results) {
-  //   return Object.keys(results).map((key) => {
-  //     //console.log(results);
-  //     return results;
-  //   });
-  // }
+  loadingButton() {
+    if (!this.props.loading) {
+      console.log("see");
+      return <Button loading>Loading</Button>;
+    }
+  }
   render() {
     const { results } = this.props;
+
     //console.log(this.props.results);
     return (
       <div className="main">
         <MainMenu router={router} />
         <Banner />
+        {/* {this.loadingButton()} */}
         {/* <Country /> */}
-        <CardReport read={results} />
+        <CardReport read={results} loading={this.loadingButton()} />
         <Footer />
       </div>
     );
