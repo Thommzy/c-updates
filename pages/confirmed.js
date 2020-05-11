@@ -1,9 +1,18 @@
+import _ from "lodash";
 import React, { Component } from "react";
 import Router from "next/router";
 import { BASE_URL } from "../config";
 import axios from "axios";
 import MainMenu from "../Components/Header/MainMenu";
-import { Card, Image, Button, Header, Container } from "semantic-ui-react";
+import {
+  Card,
+  Image,
+  Button,
+  Header,
+  Container,
+  Input,
+  Search,
+} from "semantic-ui-react";
 // import us from "/static/us-flag.jpg";
 
 import moment from "moment";
@@ -44,66 +53,105 @@ export default class confirmed extends Component {
     return { confirms, loading: false };
   }
 
+  state = { isLoading: false, results: this.props.confirms, value: "" };
+
+  handleResultSelect = (e, { result }) =>
+    this.setState({ value: result.countryRegion });
+
+  handleSearchChange = (e, { value }) => {
+    this.setState({ isLoading: true, value });
+
+    setTimeout(() => {
+      if (this.state.value.length < 1)
+        return this.setState({
+          isLoading: false,
+          results: this.props.confirms,
+          value: "",
+        });
+
+      const re = new RegExp(_.escapeRegExp(this.state.value), "i");
+      const isMatch = (result) => re.test(result.countryRegion);
+
+      this.setState({
+        isLoading: false,
+        results: _.filter(this.props.confirms, isMatch),
+      });
+    }, 300);
+  };
+
   render() {
     const { confirms, loading } = this.props;
-    // console.log(!loading);
+    const { isLoading, value, results } = this.state;
+    console.log(results);
     return (
       <>
         <MainMenu router={router} />
+        <div className="searchBar">
+          <Search
+            loading={isLoading}
+            onResultSelect={this.handleResultSelect}
+            onSearchChange={_.debounce(this.handleSearchChange, 500, {
+              leading: true,
+            })}
+            results={results}
+            value={value}
+            placeholder="Search Country"
+          />
+        </div>
         <Container>
           {!loading ? (
             <div className="main-confirmed">
               <Card.Group className="card-main">
-                {Object.keys(confirms).map((key, i) => (
+                {results.map((key, i) => (
                   <Card key={i} className="center">
                     <Card.Content>
                       <Image
                         floated="right"
                         size="mini"
                         src={
-                          confirms[key].countryRegion === "US"
+                          key.countryRegion === "US"
                             ? "/static/us-flag.jpg"
-                            : confirms[key].countryRegion === "Spain"
+                            : key.countryRegion === "Spain"
                             ? "/static/spain-flag.jpg"
-                            : confirms[key].countryRegion === "Italy"
+                            : key.countryRegion === "Italy"
                             ? "/static/italy-flag.jpg"
-                            : confirms[key].countryRegion === "France"
+                            : key.countryRegion === "France"
                             ? "/static/france-flag.jpg"
-                            : confirms[key].countryRegion === "Germany"
+                            : key.countryRegion === "Germany"
                             ? "/static/germany-flag.gif"
-                            : confirms[key].countryRegion === "United Kingdom"
+                            : key.countryRegion === "United Kingdom"
                             ? "/static/uk-flag.jpg"
-                            : confirms[key].countryRegion === "Turkey"
+                            : key.countryRegion === "Turkey"
                             ? "/static/turkey-flag.jpg"
-                            : confirms[key].countryRegion === "Iran"
+                            : key.countryRegion === "Iran"
                             ? "/static/iran-flag.jpg"
-                            : confirms[key].countryRegion === "Russia"
+                            : key.countryRegion === "Russia"
                             ? "/static/russia-flag.jpg"
-                            : confirms[key].countryRegion === "China"
+                            : key.countryRegion === "China"
                             ? "/static/china-flag.jpg"
-                            : confirms[key].countryRegion === "Brazil"
+                            : key.countryRegion === "Brazil"
                             ? "/static/brazil-flag.jpg"
-                            : confirms[key].countryRegion === "Belgium"
+                            : key.countryRegion === "Belgium"
                             ? "/static/belgium-flag.jpg"
-                            : confirms[key].countryRegion === "Netherlands"
+                            : key.countryRegion === "Netherlands"
                             ? "/static/netherland-flag.jpg"
-                            : confirms[key].countryRegion === "Switzerland"
+                            : key.countryRegion === "Switzerland"
                             ? "/static/switzerland-flag.jpg"
-                            : confirms[key].countryRegion === "India"
+                            : key.countryRegion === "India"
                             ? "/static/india-flag.jpg"
-                            : confirms[key].countryRegion === "Peru"
+                            : key.countryRegion === "Peru"
                             ? "/static/peru-flag.png"
-                            : confirms[key].countryRegion === "Canada"
+                            : key.countryRegion === "Canada"
                             ? "/static/canada-flag.jpg"
-                            : confirms[key].countryRegion === "Portugal"
+                            : key.countryRegion === "Portugal"
                             ? "/static/portugal-flag.jpg"
-                            : confirms[key].countryRegion === "Ecuador"
+                            : key.countryRegion === "Ecuador"
                             ? "/static/ecuador-flag.png"
-                            : confirms[key].countryRegion === "Ireland"
+                            : key.countryRegion === "Ireland"
                             ? "/static/ireland.jpg"
-                            : confirms[key].countryRegion === "Nigeria"
+                            : key.countryRegion === "Nigeria"
                             ? "/static/nigeria-flag.jpg"
-                            : confirms[key].countryRegion === "Ghana"
+                            : key.countryRegion === "Ghana"
                             ? "/static/ghana-flag.jpg"
                             : null
                         }
@@ -111,27 +159,25 @@ export default class confirmed extends Component {
                       />
                       <Card.Description className="lowerSpace">
                         Province state:
-                        <strong>{confirms[key].provinceState}</strong>
+                        <strong>{key.provinceState}</strong>
                       </Card.Description>
                       <Card.Description className="lowerSpace">
                         Country Region:
-                        <strong>{confirms[key].countryRegion}</strong>
+                        <strong>{key.countryRegion}</strong>
                       </Card.Description>
                       <Card.Description className="lowerSpace">
                         Last Update:
                         <strong>
-                          {moment(confirms[key].lastUpdate).format(
-                            "YYYY-MM-DD"
-                          )}
+                          {moment(key.lastUpdate).format("YYYY-MM-DD")}
                         </strong>
                       </Card.Description>
                       <Card.Description className="lowerSpace">
                         Confirmed:
-                        <strong>{addComma(confirms[key].confirmed)}</strong>
+                        <strong>{addComma(key.confirmed)}</strong>
                       </Card.Description>
                       <Card.Description className="lowerSpace">
                         Active:
-                        <strong>{addComma(confirms[key].active)}</strong>
+                        <strong>{addComma(key.active)}</strong>
                       </Card.Description>
                     </Card.Content>
                     <Card.Content extra>

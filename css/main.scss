@@ -112,3 +112,14 @@ html {
     margin-bottom: 1rem;
   }
 }
+
+.visible.transition {
+  display: none !important;
+}
+.searchBar {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
